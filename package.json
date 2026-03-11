@@ -75,7 +75,8 @@
   },
   "homepage": "https://github.com/dawsonxiong/react-native-LaTeX-renderer#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.1",

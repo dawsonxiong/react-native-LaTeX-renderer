@@ -5,9 +5,8 @@ A LaTeX renderer for React Native with two rendering modes:
 - **`MathView`** (Native SVG) — Renders LaTeX as native SVG using MathJax. No WebView, no network requests, sub-millisecond rendering.
 - **`KaTeXAutoHeightWebView`** (WebView) — Renders LaTeX in an auto-resizing WebView using KaTeX.
 
-<!-- TODO: replace with actual screenshot before publishing -->
 <p align="center">
-  <img src="https://placeholder.com/screenshot.png" alt="MathView Example" width="300" />
+  <img src="assets/latex.png" alt="MathView Example" width="300" />
 </p>
 
 ## Features
@@ -87,34 +86,40 @@ const html = createKaTeXHTML(
 
 ### `MathView`
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `math` | `string` | — | Text with LaTeX delimiters (`$`, `$$`, `\(`, `\[`). |
-| `fontSize` | `number` | `16` | Base font size in pixels. |
-| `color` | `string` | `'black'` | Text and math color. |
-| `style` | `ViewStyle` | — | Container style. |
-| `onError` | `(error: Error, latex: string) => void` | — | Called when a LaTeX segment fails to render. |
-| `debug` | `boolean` | `false` | Show colored borders around segments for layout debugging. |
+
+| Prop       | Type                                    | Default   | Description                                                |
+| ---------- | --------------------------------------- | --------- | ---------------------------------------------------------- |
+| `math`     | `string`                                | —         | Text with LaTeX delimiters (`$`, `$$`, `\(`, `\[`).        |
+| `fontSize` | `number`                                | `16`      | Base font size in pixels.                                  |
+| `color`    | `string`                                | `'black'` | Text and math color.                                       |
+| `style`    | `ViewStyle`                             | —         | Container style.                                           |
+| `onError`  | `(error: Error, latex: string) => void` | —         | Called when a LaTeX segment fails to render.               |
+| `debug`    | `boolean`                               | `false`   | Show colored borders around segments for layout debugging. |
+
 
 ### `createKaTeXHTML(content, containerStyles?, latexStyles?)`
 
 Generates the HTML source string for the WebView.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `content` | `string` | Text content containing LaTeX delimiters. |
-| `containerStyles` | `object` | CSS styles for the HTML container. |
-| `latexStyles` | `object` | CSS styles applied to KaTeX elements. |
+
+| Parameter         | Type     | Description                               |
+| ----------------- | -------- | ----------------------------------------- |
+| `content`         | `string` | Text content containing LaTeX delimiters. |
+| `containerStyles` | `object` | CSS styles for the HTML container.        |
+| `latexStyles`     | `object` | CSS styles applied to KaTeX elements.     |
+
 
 ### `KaTeXAutoHeightWebView`
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `source` | `string` | — | HTML string from `createKaTeXHTML`. |
-| `onHeightChange` | `(height: number) => void` | — | Callback when content height changes. |
-| `minHeight` | `number` | `50` | Minimum WebView height. |
-| `containerStyle` | `object` | — | Outer React Native View style. |
-| `...props` | `WebViewProps` | — | Any `react-native-webview` props. |
+
+| Prop             | Type                       | Default | Description                           |
+| ---------------- | -------------------------- | ------- | ------------------------------------- |
+| `source`         | `string`                   | —       | HTML string from `createKaTeXHTML`.   |
+| `onHeightChange` | `(height: number) => void` | —       | Callback when content height changes. |
+| `minHeight`      | `number`                   | `50`    | Minimum WebView height.               |
+| `containerStyle` | `object`                   | —       | Outer React Native View style.        |
+| `...props`       | `WebViewProps`             | —       | Any `react-native-webview` props.     |
+
 
 ### `parseLatex(content)`
 
@@ -133,12 +138,14 @@ parseLatex('Hello $x^2$ world');
 
 ## Delimiters
 
-| Delimiter | Mode | Example |
-|---|---|---|
-| `$...$` | Inline | `$E = mc^2$` renders inline with text |
+
+| Delimiter | Mode    | Example                                         |
+| --------- | ------- | ----------------------------------------------- |
+| `$...$`   | Inline  | `$E = mc^2$` renders inline with text           |
 | `$$...$$` | Display | `$$E = mc^2$$` renders centered on its own line |
-| `\(...\)` | Inline | `\(E = mc^2\)` same as `$...$` |
-| `\[...\]` | Display | `\[E = mc^2\]` same as `$$...$$` |
+| `\(...\)` | Inline  | `\(E = mc^2\)` same as `$...$`                  |
+| `\[...\]` | Display | `\[E = mc^2\]` same as `$$...$$`                |
+
 
 ## Contributing
 
