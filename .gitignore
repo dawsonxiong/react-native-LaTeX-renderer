@@ -41,9 +41,9 @@ project.xcworkspace
 local.properties
 android.iml
 
-# Cocoapods
-#
-example/ios/Pods
+# Generated native builds (expo run:ios / expo run:android)
+example/ios/
+example/android/
 
 # Ruby
 example/vendor/
