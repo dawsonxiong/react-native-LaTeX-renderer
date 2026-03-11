@@ -1,33 +1,6 @@
 import katex from 'katex';
 
-interface Delimiter {
-  left: string;
-  right: string;
-  display: boolean;
-}
-
-const DELIMITERS: Delimiter[] = [
-  { left: '$$', right: '$$', display: true },
-  { left: '\\[', right: '\\]', display: true },
-  { left: '$', right: '$', display: false },
-  { left: '\\(', right: '\\)', display: false },
-];
-
-function findNextDelimiter(
-  text: string,
-  startPos: number
-): { index: number; delimiter: Delimiter } | null {
-  let best: { index: number; delimiter: Delimiter } | null = null;
-
-  for (const delim of DELIMITERS) {
-    const idx = text.indexOf(delim.left, startPos);
-    if (idx !== -1 && (best === null || idx < best.index)) {
-      best = { index: idx, delimiter: delim };
-    }
-  }
-
-  return best;
-}
+import { findNextDelimiter } from './mathParser';
 
 /**
  * Parse content with LaTeX delimiters and render math segments

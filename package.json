@@ -1,7 +1,7 @@
 {
   "name": "@adheil_gupta/react-native-latex-renderer",
   "version": "2.0.0",
-  "description": "A lightweight, auto-resizing LaTeX renderer for React Native using KaTeX.",
+  "description": "A LaTeX renderer for React Native with native SVG rendering (MathJax) and WebView rendering (KaTeX).",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -47,6 +47,8 @@
     "react-native-latex",
     "react-native-math",
     "react-native-math-renderer",
+    "react-native-svg",
+    "mathjax",
     "ios",
     "android",
     "latex",
@@ -56,6 +58,8 @@
     "formula",
     "equation",
     "renderer",
+    "svg",
+    "native",
     "webview",
     "autoheight",
     "typesetting"
@@ -98,17 +102,28 @@
     "react": "*",
     "react-native": "*",
     "react-native-builder-bob": "^0.40.13",
+    "react-native-svg": "^15.15.3",
     "react-native-webview": "*",
     "release-it": "^19.0.4",
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "katex": "^0.16.22"
+    "katex": "^0.16.22",
+    "mathjax-full": "^3.2.2"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
+    "react-native-svg": "*",
     "react-native-webview": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native-svg": {
+      "optional": true
+    },
+    "react-native-webview": {
+      "optional": true
+    }
   },
   "workspaces": [
     "example"
