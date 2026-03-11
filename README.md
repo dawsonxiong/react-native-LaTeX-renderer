@@ -5,18 +5,23 @@ A LaTeX renderer for React Native with two rendering modes:
 - **`MathView`** (Native SVG) — Renders LaTeX as native SVG using MathJax. No WebView, no network requests, sub-millisecond rendering.
 - **`KaTeXAutoHeightWebView`** (WebView) — Renders LaTeX in an auto-resizing WebView using KaTeX.
 
+<!-- TODO: replace with actual screenshot before publishing -->
+<p align="center">
+  <img src="https://placeholder.com/screenshot.png" alt="MathView Example" width="300" />
+</p>
+
 ## Features
 
-- **Native SVG rendering**: `MathView` converts LaTeX to SVG paths — no WebView overhead, no font loading delay
+- **Native SVG rendering**: `MathView` converts LaTeX to SVG paths — no WebView overhead, no font loading delay, works fully offline
 - **Mixed content**: Inline math and display math in the same string, interleaved with plain text
-- **WebView fallback**: `KaTeXAutoHeightWebView` for full HTML/CSS styling control
+- **WebView option**: `KaTeXAutoHeightWebView` for full HTML/CSS styling control (requires network for KaTeX font CSS on first load)
 - **All standard delimiters**: `$...$`, `$$...$$`, `\(...\)`, `\[...\]`
 - **TypeScript**: Fully typed API
 
 ## Installation
 
 ```sh
-npm install @adheil_gupta/react-native-latex-renderer
+npm install @dawsonxiong/react-native-latex-renderer
 ```
 
 ### Peer dependencies
@@ -40,7 +45,7 @@ Both are optional — install only what you need.
 Renders LaTeX as native SVG components. No WebView, near-instant rendering.
 
 ```tsx
-import { MathView } from '@adheil_gupta/react-native-latex-renderer';
+import { MathView } from '@dawsonxiong/react-native-latex-renderer';
 
 // Mixed text + inline math
 <MathView math="Einstein showed $E = mc^2$ and the field equation: $$R_{\mu\nu} = 0$$" />
@@ -64,7 +69,7 @@ import { MathView } from '@adheil_gupta/react-native-latex-renderer';
 Renders LaTeX inside a WebView with auto-resizing. Supports full HTML/CSS styling.
 
 ```tsx
-import { KaTeXAutoHeightWebView, createKaTeXHTML } from '@adheil_gupta/react-native-latex-renderer';
+import { KaTeXAutoHeightWebView, createKaTeXHTML } from '@dawsonxiong/react-native-latex-renderer';
 
 const html = createKaTeXHTML(
   'This is a test: $$E = mc^2$$',
@@ -116,7 +121,7 @@ Generates the HTML source string for the WebView.
 Low-level utility that parses a string into structured segments.
 
 ```ts
-import { parseLatex } from '@adheil_gupta/react-native-latex-renderer';
+import { parseLatex } from '@dawsonxiong/react-native-latex-renderer';
 
 parseLatex('Hello $x^2$ world');
 // [

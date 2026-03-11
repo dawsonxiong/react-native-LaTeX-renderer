@@ -176,7 +176,12 @@ export const MathView = React.memo(function MathView({
               style={[styles.displayContainer, debugDisplaySvg]}
             >
               <View
-                style={{ width: seg.widthPx, maxWidth: '100%', aspectRatio }}
+                style={{
+                  width: seg.widthPx,
+                  maxWidth: '100%',
+                  aspectRatio,
+                  overflow: 'visible',
+                }}
               >
                 <SvgXml xml={seg.xml} width="100%" height="100%" />
               </View>
