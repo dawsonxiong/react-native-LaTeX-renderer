@@ -1,5 +1,5 @@
 {
-  "name": "@adheil_gupta/react-native-latex-renderer",
+  "name": "@dawsonxiong/react-native-latex-renderer",
   "version": "2.0.0",
   "description": "A LaTeX renderer for React Native with native SVG rendering (MathJax) and WebView rendering (KaTeX).",
   "main": "./lib/module/index.js",
