@@ -1,5 +1,7 @@
 # React Native LaTeX Renderer
 
+On npm as [@dawsonxiong/react-native-latex-renderer](https://www.npmjs.com/package/@dawsonxiong/react-native-latex-renderer).
+
 A LaTeX renderer for React Native with two rendering modes:
 
 - **`MathView`** (Native SVG) — Renders LaTeX as native SVG using MathJax. No WebView, no network requests, sub-millisecond rendering.
